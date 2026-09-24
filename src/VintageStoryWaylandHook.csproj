@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Build: dotnet build src -c Release
+    The game folder (the one containing VintagestoryLib.dll) is taken from -p:VintageStory=...,
+    the VINTAGE_STORY environment variable, or /opt/vintagestory.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>VintageStoryWaylandHook</AssemblyName>
+    <Version>1.0.0</Version>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <VintageStory Condition="'$(VintageStory)' == ''">$(VINTAGE_STORY)</VintageStory>
+    <VintageStory Condition="'$(VintageStory)' == ''">/opt/vintagestory</VintageStory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="VintagestoryLib" HintPath="$(VintageStory)/VintagestoryLib.dll" Private="false" />
+    <Reference Include="VintagestoryAPI" HintPath="$(VintageStory)/VintagestoryAPI.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(VintageStory)/Lib/0Harmony.dll" Private="false" />
+    <Reference Include="OpenTK.Windowing.GraphicsLibraryFramework" HintPath="$(VintageStory)/Lib/OpenTK.Windowing.GraphicsLibraryFramework.dll" Private="false" />
+  </ItemGroup>
+
+</Project>
