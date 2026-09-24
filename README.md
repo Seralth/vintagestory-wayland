@@ -34,7 +34,11 @@ game already does before the shader exists. Nothing else changes.
   **Flatpak build is not supported**: the add-on cannot be passed into its sandbox.
 
 Tested with Vintage Story 1.22.7 on KDE Plasma 6.7 (Wayland), on an NVIDIA RTX 5080 laptop
-and an AMD RX 7900 XTX desktop.
+and an AMD RX 7900 XTX desktop. Other Wayland desktops are expected to work but have not been
+tried; reports are welcome.
+
+On GNOME, applications draw their own window title bars. If the game's window has none, try
+installing `libdecor`, which the game's windowing library uses for that.
 
 ## Install
 
